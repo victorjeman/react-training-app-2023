@@ -1,0 +1,119 @@
+{
+  "products": [
+    {
+      "id": "1000",
+      "name": "Bamboo Watch",
+      "size": {
+        "width": 20,
+        "height": 30,
+        "depth": 40
+      },
+      "price": {
+        "currency": "EUR",
+        "value": 65
+      },
+      "manufacturer": "ASSIST SRL",
+      "originCountry": "Romania"
+    },
+    {
+      "id": "1001",
+      "name": "Black Watch",
+      "size": {
+        "width": 20,
+        "height": 30,
+        "depth": 40
+      },
+      "price": {
+        "currency": "EUR",
+        "value": 70
+      },
+      "manufacturer": "ASSIST SRL",
+      "originCountry": "Romania"
+    },
+    {
+      "id": "1002",
+      "name": "Blue Band",
+      "size": {
+        "width": 20,
+        "height": 30,
+        "depth": 40
+      },
+      "price": {
+        "currency": "EUR",
+        "value": 65
+      },
+      "manufacturer": "ASSIST SRL",
+      "originCountry": "Romania"
+    },
+    {
+      "id": "1007",
+      "name": "Galaxy Earrings",
+      "size": {
+        "width": 20,
+        "height": 30,
+        "depth": 40
+      },
+      "price": {
+        "currency": "EUR",
+        "value": 65
+      },
+      "manufacturer": "ASSIST SRL",
+      "originCountry": "Romania"
+    },
+    {
+      "id": "1008",
+      "name": "Game Controller",
+      "size": {
+        "width": 20,
+        "height": 30,
+        "depth": 40
+      },
+      "price": {
+        "currency": "EUR",
+        "value": 65
+      },
+      "manufacturer": "ASSIST SRL",
+      "originCountry": "Romania"
+    },
+    {
+      "id": "1009",
+      "name": "Gaming Set",
+      "size": {
+        "width": 20,
+        "height": 30,
+        "depth": 40
+      },
+      "price": {
+        "currency": "EUR",
+        "value": 65
+      },
+      "manufacturer": "ASSIST SRL",
+      "originCountry": "Romania"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1000,
+      "reviews": [
+        {
+          "id": "1",
+          "author": "Useless Man",
+          "text": "This is a very good product",
+          "rating": 8
+        },
+        {
+          "id": "2",
+          "author": "Spider Man",
+          "text": "It's very easy to use",
+          "rating": 9
+        },
+        {
+          "id": "3",
+          "author": "Mario",
+          "text": "It's ok, doesn't get you high if you smoke it so I'm not a big fan",
+          "rating": 6
+        }
+      ]
+    }
+  ]
+}
