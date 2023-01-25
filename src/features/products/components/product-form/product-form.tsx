@@ -13,8 +13,8 @@ import {
 	PRODUCT_FORM_SCHEMA,
 } from '~/features/products/constants/product.const'
 import { Product, ProductFieldName, ProductFields } from '~/features/products/types/products.types'
-import { createProductFromFields } from '~/features/utils/createProductFromFields'
-import { createFormFieldsArrayFromProduct } from '~/features/utils/createFormFieldsArrayFromProduct'
+import { createProductFromFields } from '~/features/products/utils/createProductFromFields'
+import { createFormFieldsArrayFromProduct } from '~/features/products/utils/createFormFieldsArrayFromProduct'
 
 interface Props {
 	onSubmit: (product: Product) => void

@@ -6,12 +6,12 @@ interface ShowToastProps {
 	severity: 'success' | 'error'
 }
 
-// @ts-ignore
-const toastContext = createContext<{ showToast: (props: ShowToastProps) => void }>(null)
-
 interface ToastProviderProps {
 	children: React.ReactNode
 }
+
+// @ts-ignore
+const toastContext = createContext<{ showToast: (props: ShowToastProps) => void }>(null)
 
 export const ToastProvider = ({ children }: ToastProviderProps) => {
 	const showToast = ({ summary, severity }: ShowToastProps) => {
@@ -29,6 +29,7 @@ export const ToastProvider = ({ children }: ToastProviderProps) => {
 	return (
 		<toastContext.Provider value={{ showToast }}>
 			<Toast ref={toast} />
+
 			{children}
 		</toastContext.Provider>
 	)
