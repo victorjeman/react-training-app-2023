@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import useSWR from 'swr'
 
-import { Product } from '~/features/products/types/products.types'
+import { ProductMode, Product } from '~/features/products/types/products.types'
 import { PRODUCTS_ENDPOINT as cacheKey } from '~/features/products/constants/product.const'
 
 import {
 	createProductAPI,
 	deleteProductAPI,
 	readProductsAPI,
+	updateProductAPI,
 } from '~/features/products/api/product-api'
 import {
 	createProductOptions,
@@ -24,6 +25,7 @@ import { useToast } from '~/common/hooks/useToast'
 
 export const ProductList = () => {
 	const [activeProduct, setActiveProduct] = useState<Product | null>(null)
+	const [productMode, setProductMode] = useState<ProductMode>('isDefault')
 	const [isAddMode, setIsAddMode] = useState(false)
 	const [isEditMode, setIsEditMode] = useState(false)
 	const [isViewMode, setIsViewMode] = useState(false)
@@ -35,12 +37,12 @@ export const ProductList = () => {
 	const createProductMutation = async (newProduct: Product) => {
 		try {
 			// version 1
-			// await createProductAPI(newProduct)
-			// mutateProducts()
+			await createProductAPI(newProduct)
+			mutateProducts()
 
 			// version 2
-			await mutateProducts(createProductAPI(newProduct), createProductOptions(newProduct))
-			showToast({ summary: 'Product created successfully!', severity: 'success' })
+			// await mutateProducts(createProductAPI(newProduct), createProductOptions(newProduct))
+			// showToast({ summary: 'Product created successfully!', severity: 'success' })
 		} catch (err) {
 			showToast({ summary: 'Product creation failed!', severity: 'error' })
 		}
@@ -48,7 +50,12 @@ export const ProductList = () => {
 
 	const updateProductMutation = async (productToUpdate: Product) => {
 		try {
-			await mutateProducts(createProductAPI(productToUpdate), updateProductOptions(productToUpdate))
+			// version 1
+			await updateProductAPI(productToUpdate)
+			mutateProducts()
+
+			// version 2
+			// await mutateProducts(updateProductAPI(productToUpdate), updateProductOptions(productToUpdate))
 			showToast({ summary: 'Product updated successfully!', severity: 'success' })
 		} catch (err) {
 			showToast({ summary: 'Product update failed!', severity: 'error' })
@@ -73,31 +80,30 @@ export const ProductList = () => {
 				<p>loading products</p>
 			) : (
 				<div className='card'>
-					<ProductToolbar setIsAddMode={setIsAddMode} className='mb-4' />
+					<ProductToolbar setProductMode={setProductMode} className='mb-4' />
 
 					<ProductDetails
 						product={activeProduct}
-						isViewMode={isViewMode}
-						setIsViewMode={setIsViewMode}
+						productMode={productMode}
+						setProductMode={setProductMode}
 					/>
 
 					<ProductFormCreate
-						isAddMode={isAddMode}
-						setIsAddMode={setIsAddMode}
+						productMode={productMode}
+						setProductMode={setProductMode}
 						onSubmit={createProductMutation}
 					/>
 
 					<ProductFormUpdate
 						activeProduct={activeProduct}
-						editMode={isEditMode}
+						productMode={productMode}
+						setProductMode={setProductMode}
 						onSubmit={updateProductMutation}
-						setIsEditMode={setIsEditMode}
 					/>
 
 					<ProductTable
 						products={products}
-						setIsViewMode={setIsViewMode}
-						setIsEditMode={setIsEditMode}
+						setProductMode={setProductMode}
 						setActiveProduct={setActiveProduct}
 						deleteProductMutation={deleteProductMutation}
 					/>

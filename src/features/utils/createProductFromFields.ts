@@ -1,7 +1,8 @@
 import { ProductFields } from '~/features/products/types/products.types'
 
-export const createProductFromFields = (productFormFields: ProductFields) => {
+export const createProductFromFields = (productFormFields: ProductFields, productId?: string) => {
 	return {
+		...(productId && { id: productId }),
 		name: productFormFields.name,
 		manufacturer: productFormFields.manufacturer,
 		originCountry: productFormFields.originCountry,

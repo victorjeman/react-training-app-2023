@@ -6,7 +6,7 @@ import { ProductReview } from '~/features/products/types/products.types'
 
 const productsAPI = axios.create({ baseURL: API_BASE_URL })
 
-const delay = () => new Promise((res: Function) => setTimeout(() => res(), 20))
+const delay = (delay: number = 20) => new Promise((res: Function) => setTimeout(() => res(), delay))
 
 // products
 export const createProductAPI = async (product: any) => {
@@ -29,7 +29,7 @@ export const readProductsAPI = async () => {
 }
 
 export const updateProductAPI = async (product: any) => {
-	await delay()
+	await delay(2000)
 	const response = await productsAPI.patch(`${PRODUCTS_ENDPOINT}/${product.id}`, product)
 	return response.data
 }

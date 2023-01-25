@@ -3,6 +3,7 @@
 		{
 			"id": "1000",
 			"name": "Bamboo Watch",
+			"weight": 10,
 			"size": {
 				"width": 20,
 				"height": 30,
@@ -12,12 +13,13 @@
 				"currency": "EUR",
 				"value": 65
 			},
-			"manufacturer": "ASSIST SRL",
+			"manufacturer": "China",
 			"originCountry": "Romania"
 		},
 		{
 			"id": "1001",
 			"name": "Black Watch",
+			"weight": 10,
 			"size": {
 				"width": 20,
 				"height": 30,
@@ -27,12 +29,13 @@
 				"currency": "EUR",
 				"value": 70
 			},
-			"manufacturer": "ASSIST SRL",
+			"manufacturer": "China",
 			"originCountry": "Romania"
 		},
 		{
 			"id": "1002",
 			"name": "Blue Band",
+			"weight": 10,
 			"size": {
 				"width": 20,
 				"height": 30,
@@ -42,12 +45,13 @@
 				"currency": "EUR",
 				"value": 65
 			},
-			"manufacturer": "ASSIST SRL",
+			"manufacturer": "China",
 			"originCountry": "Romania"
 		},
 		{
 			"id": "1003",
 			"name": "Blue T-Shirt",
+			"weight": 10,
 			"size": {
 				"width": 20,
 				"height": 30,
@@ -57,12 +61,13 @@
 				"currency": "EUR",
 				"value": 65
 			},
-			"manufacturer": "ASSIST SRL",
+			"manufacturer": "China",
 			"originCountry": "Romania"
 		},
 		{
 			"id": "1004",
 			"name": "Bracelet",
+			"weight": 10,
 			"size": {
 				"width": 20,
 				"height": 30,
@@ -72,12 +77,13 @@
 				"currency": "EUR",
 				"value": 65
 			},
-			"manufacturer": "ASSIST SRL",
+			"manufacturer": "China",
 			"originCountry": "Romania"
 		},
 		{
 			"id": "1005",
 			"name": "Brown Purse",
+			"weight": 10,
 			"size": {
 				"width": 20,
 				"height": 30,
@@ -87,12 +93,13 @@
 				"currency": "EUR",
 				"value": 65
 			},
-			"manufacturer": "ASSIST SRL",
+			"manufacturer": "China",
 			"originCountry": "Romania"
 		},
 		{
 			"id": "1006",
 			"name": "Chakra Bracelet",
+			"weight": 10,
 			"size": {
 				"width": 20,
 				"height": 30,
@@ -102,12 +109,13 @@
 				"currency": "EUR",
 				"value": 65
 			},
-			"manufacturer": "ASSIST SRL",
+			"manufacturer": "China",
 			"originCountry": "Romania"
 		},
 		{
 			"id": "1007",
 			"name": "Galaxy Earrings",
+			"weight": 10,
 			"size": {
 				"width": 20,
 				"height": 30,
@@ -117,12 +125,13 @@
 				"currency": "EUR",
 				"value": 65
 			},
-			"manufacturer": "ASSIST SRL",
+			"manufacturer": "China",
 			"originCountry": "Romania"
 		},
 		{
 			"id": "1008",
 			"name": "Game Controller",
+			"weight": 10,
 			"size": {
 				"width": 20,
 				"height": 30,
@@ -132,12 +141,13 @@
 				"currency": "EUR",
 				"value": 65
 			},
-			"manufacturer": "ASSIST SRL",
+			"manufacturer": "China",
 			"originCountry": "Romania"
 		},
 		{
 			"id": "1009",
 			"name": "Gaming Set",
+			"weight": 10,
 			"size": {
 				"width": 20,
 				"height": 30,
@@ -147,14 +157,14 @@
 				"currency": "EUR",
 				"value": 65
 			},
-			"manufacturer": "ASSIST SRL",
+			"manufacturer": "China",
 			"originCountry": "Romania"
 		}
 	],
-
 	"reviews": [
 		{
-			"1000": [
+			"id": 1000,
+			"reviews": [
 				{
 					"id": "1",
 					"author": "Useless Man",

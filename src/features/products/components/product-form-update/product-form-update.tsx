@@ -1,21 +1,26 @@
 import { Sidebar } from 'primereact/sidebar'
 
 import { ProductForm } from '~/features/products/components/product-form/product-form'
-import { Product } from '~/features/products/types/products.types'
+import { Product, ProductMode } from '~/features/products/types/products.types'
 
 interface Props {
 	activeProduct: Product | null
-	editMode: boolean
+	productMode: ProductMode
 	onSubmit: (product: Product) => void
-	setIsEditMode: (value: boolean) => void
+	setProductMode: (value: ProductMode) => void
 }
 
-export const ProductFormUpdate = ({ activeProduct, editMode, onSubmit, setIsEditMode }: Props) => {
+export const ProductFormUpdate = ({
+	activeProduct,
+	productMode,
+	onSubmit,
+	setProductMode,
+}: Props) => {
 	return (
 		<Sidebar
-			visible={editMode}
-			position='left'
-			onHide={() => setIsEditMode(false)}
+			visible={productMode === 'isUpdate'}
+			position='right'
+			onHide={() => setProductMode('isDefault')}
 			className='w-30rem p-2'>
 			<h3 className='text-2xl font-normal'>Edit product</h3>
 

@@ -1,21 +1,21 @@
 import { Sidebar } from 'primereact/sidebar'
 import { Divider } from 'primereact/divider'
 
-import { Product } from '~/features/products/types/products.types'
+import { ProductMode, Product } from '~/features/products/types/products.types'
 import { ProductReviewList } from '~/features/products/components/product-review-list/product-review-list'
 
 interface Props {
 	product: Product | null
-	isViewMode: boolean
-	setIsViewMode: (value: boolean) => void
+	productMode: ProductMode
+	setProductMode: (value: ProductMode) => void
 }
 
-export const ProductDetails = ({ product, isViewMode, setIsViewMode }: Props) => {
+export const ProductDetails = ({ product, productMode, setProductMode }: Props) => {
 	return (
 		<Sidebar
-			visible={isViewMode}
+			visible={productMode === 'isRead'}
 			position='left'
-			onHide={() => setIsViewMode(false)}
+			onHide={() => setProductMode('isDefault')}
 			className='w-30rem p-2'>
 			<h3 className='text-2xl font-normal'>Product Details</h3>
 

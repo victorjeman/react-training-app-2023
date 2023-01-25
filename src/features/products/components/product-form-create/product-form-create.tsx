@@ -1,21 +1,21 @@
 import { Dialog } from 'primereact/dialog'
 
-import { Product } from '~/features/products/types/products.types'
+import { Product, ProductMode } from '~/features/products/types/products.types'
 import { ProductForm } from '~/features/products/components/product-form/product-form'
 
 interface Props {
-	isAddMode: boolean
+	productMode: ProductMode
 	onSubmit: (product: Product) => void
-	setIsAddMode: (value: boolean) => void
+	setProductMode: (value: ProductMode) => void
 }
 
-export const ProductFormCreate = ({ isAddMode, onSubmit, setIsAddMode }: Props) => {
+export const ProductFormCreate = ({ productMode, onSubmit, setProductMode }: Props) => {
 	return (
 		<Dialog
 			header='Add new product'
-			visible={isAddMode}
+			visible={productMode === 'isCreate'}
 			style={{ width: '50vw' }}
-			onHide={() => setIsAddMode(false)}>
+			onHide={() => setProductMode('isDefault')}>
 			<ProductForm onSubmit={onSubmit} />
 		</Dialog>
 	)

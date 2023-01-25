@@ -1,16 +1,13 @@
-import { useState } from 'react'
-
 import { Button } from 'primereact/button'
 import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
 import { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup'
 
-import { Product } from '~/features/products/types/products.types'
+import { Product, ProductMode } from '~/features/products/types/products.types'
 
 interface Props {
 	products: Product[]
-	setIsViewMode: (value: boolean) => void
-	setIsEditMode: (value: boolean) => void
+	setProductMode: (value: ProductMode) => void
 	setActiveProduct: (product: Product) => void
 	deleteProductMutation: (productToDeleteID: string | undefined) => void
 }
@@ -19,8 +16,7 @@ const tableHeader = <div className='table-header'>Products</div>
 
 export const ProductTable = ({
 	products,
-	setIsViewMode,
-	setIsEditMode,
+	setProductMode,
 	setActiveProduct,
 	deleteProductMutation,
 }: Props) => {
@@ -43,7 +39,7 @@ export const ProductTable = ({
 					icon='pi pi-eye'
 					className='p-button-rounded p-button-primary p-button-text mr-1'
 					onClick={() => {
-						setIsViewMode(true)
+						setProductMode('isRead')
 						setActiveProduct(product)
 					}}
 				/>
@@ -55,7 +51,7 @@ export const ProductTable = ({
 					className='p-button-rounded p-button-secondary p-button-text mr-3'
 					onClick={() => {
 						setActiveProduct(product)
-						setIsEditMode(true)
+						setProductMode('isUpdate')
 					}}
 				/>
 

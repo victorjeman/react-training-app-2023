@@ -13,7 +13,7 @@ export const createProductOptions = (newProduct: any) => {
 export const updateProductOptions = (updatedProduct: Product) => {
 	function generateUpdatedProducts(updatedProduct: any, prevProducts: any[]) {
 		const productToUpdateIndex = prevProducts.findIndex(
-			(product) => product.id !== updatedProduct.id,
+			(product) => product.id === updatedProduct.id,
 		)
 
 		const productsUpdated = JSON.parse(JSON.stringify(prevProducts))

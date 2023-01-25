@@ -51,9 +51,11 @@ export const ProductForm = ({ onSubmit, productToUpdate }: Props) => {
 	})
 
 	const localOnSubmit = (formFields: ProductFields) => {
-		const newProduct = createProductFromFields(formFields)
-		onSubmit(newProduct)
-		reset()
+		const productToSubmit = createProductFromFields(formFields, productToUpdate?.id)
+
+		onSubmit(productToSubmit)
+
+		if (!productToUpdate) reset()
 	}
 
 	const getFormErrorMessage = (fieldName: ProductFieldName) => {
