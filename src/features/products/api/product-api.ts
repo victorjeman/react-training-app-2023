@@ -29,7 +29,7 @@ export const readProductsAPI = async () => {
 }
 
 export const updateProductAPI = async (product: any) => {
-	await delay(2000)
+	await delay()
 	const response = await productsAPI.patch(`${PRODUCTS_ENDPOINT}/${product.id}`, product)
 	return response.data
 }
@@ -41,7 +41,6 @@ export const deleteProductAPI = async (productToDeleteID: string | undefined) =>
 }
 
 // product reviews
-
 export const readReviewsAPI = async (url: string): Promise<ProductReview[]> => {
 	await delay()
 

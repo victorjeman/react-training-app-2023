@@ -22,7 +22,7 @@ export const ProductToolbar = ({ setProductMode, ...rest }: Props) => {
 
 	return (
 		<div>
-			<Toolbar right={rightContents} {...rest} />
+			<Toolbar left={<h2>Products</h2>} right={rightContents} {...rest} className='mb-3' />
 		</div>
 	)
 }

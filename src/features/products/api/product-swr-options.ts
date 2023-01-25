@@ -23,17 +23,18 @@ export const updateProductOptions = (updatedProduct: Product) => {
 	}
 
 	return {
+		rollbackOnError: true,
+		revalidate: false,
+
 		// optimistic data displays until we populate cache
 		optimisticData: (prevProducts: any[]) => {
 			return generateUpdatedProducts(updatedProduct, prevProducts)
 		},
-		rollbackOnError: true,
 		// response from API request is 1st param
 		// previous data is 2nd param
 		populateCache: (updatedProductFromAPI: any, prevProducts: any[]) => {
 			return generateUpdatedProducts(updatedProductFromAPI, prevProducts)
 		},
-		revalidate: false,
 	}
 }
 

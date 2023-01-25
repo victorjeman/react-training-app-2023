@@ -26,9 +26,6 @@ import { useToast } from '~/common/hooks/useToast'
 export const ProductList = () => {
 	const [activeProduct, setActiveProduct] = useState<Product | null>(null)
 	const [productMode, setProductMode] = useState<ProductMode>('isDefault')
-	const [isAddMode, setIsAddMode] = useState(false)
-	const [isEditMode, setIsEditMode] = useState(false)
-	const [isViewMode, setIsViewMode] = useState(false)
 
 	const { showToast } = useToast()
 
@@ -56,7 +53,7 @@ export const ProductList = () => {
 
 			// version 2
 			// await mutateProducts(updateProductAPI(productToUpdate), updateProductOptions(productToUpdate))
-			showToast({ summary: 'Product updated successfully!', severity: 'success' })
+			// showToast({ summary: 'Product updated successfully!', severity: 'success' })
 		} catch (err) {
 			showToast({ summary: 'Product update failed!', severity: 'error' })
 		}
@@ -80,7 +77,7 @@ export const ProductList = () => {
 				<p>loading products</p>
 			) : (
 				<div className='card'>
-					<ProductToolbar setProductMode={setProductMode} className='mb-4' />
+					<ProductToolbar setProductMode={setProductMode} />
 
 					<ProductDetails
 						product={activeProduct}

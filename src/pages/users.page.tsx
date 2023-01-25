@@ -1,13 +1,11 @@
 import { PageContainer } from '~/common/components/page-container/page-container'
 import { Navigation } from '~/common/components/navigation/navigation'
 
-import { ProductList } from '~/features/products/components/product-list/product-list'
-
-export const ProductsPage = () => {
+export const UsersPage = () => {
 	return (
 		<PageContainer>
 			<Navigation />
-			<ProductList />
+			<h1>Users</h1>
 		</PageContainer>
 	)
 }
