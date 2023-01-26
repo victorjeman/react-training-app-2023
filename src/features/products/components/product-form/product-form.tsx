@@ -133,28 +133,11 @@ export const ProductForm = ({ onSubmit, productToUpdate }: Props) => {
 				</div>
 
 				<div className='mb-4'>
-					<label className='mb-2 block text-color-secondary' htmlFor='manufacturer'>
+					<label className='mb-2 block text-color-secondary' htmlFor='name'>
 						Manufacturer
 					</label>
 
-					<Controller
-						control={control}
-						name='manufacturer'
-						render={({ field }) => (
-							<>
-								<Dropdown
-									id='manufacturer'
-									options={COUNTRY_SELECT_ITEMS}
-									optionLabel='name'
-									optionValue='value'
-									onChange={(e) => field.onChange(e)}
-									value={field.value}
-									itemTemplate={countryOptionTemplate}
-								/>
-								{getFormErrorMessage(field.name)}
-							</>
-						)}
-					/>
+					<InputText id='manufacturer' {...register('manufacturer')} />
 					{getFormErrorMessage('manufacturer')}
 				</div>
 

@@ -8,14 +8,14 @@ import { Product, ProductMode } from '~/features/products/types/products.types'
 interface Props {
 	products: Product[]
 	setProductMode: (value: ProductMode) => void
-	setActiveProduct: (product: Product) => void
+	setActiveProductID: (productID: string | undefined) => void
 	deleteProductMutation: (productToDeleteID: string | undefined) => void
 }
 
 export const ProductTable = ({
 	products,
 	setProductMode,
-	setActiveProduct,
+	setActiveProductID,
 	deleteProductMutation,
 }: Props) => {
 	const actionsBodyTemplate = (product: Product) => {
@@ -37,8 +37,8 @@ export const ProductTable = ({
 					icon='pi pi-eye'
 					className='p-button-rounded p-button-primary p-button-text mr-1'
 					onClick={() => {
+						setActiveProductID(product.id)
 						setProductMode('isRead')
-						setActiveProduct(product)
 					}}
 				/>
 
@@ -48,7 +48,7 @@ export const ProductTable = ({
 					icon='pi pi-pencil'
 					className='p-button-rounded p-button-secondary p-button-text mr-3'
 					onClick={() => {
-						setActiveProduct(product)
+						setActiveProductID(product.id)
 						setProductMode('isUpdate')
 					}}
 				/>

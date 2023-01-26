@@ -1,45 +1,52 @@
 import { useState } from 'react'
 import useSWR from 'swr'
 
+import { PRODUCTS_ENDPOINT, REVIEWS_ENDPOINT } from '~/features/products/constants/product.const'
 import { ProductMode, Product } from '~/features/products/types/products.types'
-import { PRODUCTS_ENDPOINT as cacheKey } from '~/features/products/constants/product.const'
+
+import { useToast } from '~/common/hooks/useToast'
 
 import {
 	createProductAPI,
 	deleteProductAPI,
 	readProductsAPI,
+	readReviewsAPI,
+	readSingleProductAPI,
 	updateProductAPI,
 } from '~/features/products/api/product-api'
-import {
-	createProductOptions,
-	deleteProductOptions,
-	updateProductOptions,
-} from '~/features/products/api/product-swr-options'
 
 import { ProductDetails } from '~/features/products/components/product-details/product-details'
 import { ProductToolbar } from '~/features/products/components/product-toolbar/product-toolbar'
 import { ProductFormUpdate } from '~/features/products/components/product-form-update/product-form-update'
 import { ProductFormCreate } from '~/features/products/components/product-form-create/product-form-create'
 import { ProductTable } from '~/features/products/components/product-table/product-table'
-import { useToast } from '~/common/hooks/useToast'
 
 export const ProductList = () => {
-	const [activeProduct, setActiveProduct] = useState<Product | null>(null)
+	const [activeProductID, setActiveProductID] = useState<string | undefined>(undefined)
 	const [productMode, setProductMode] = useState<ProductMode>('isDefault')
 
 	const { showToast } = useToast()
 
-	const { isLoading, data: products, mutate: mutateProducts } = useSWR(cacheKey, readProductsAPI)
+	const {
+		isLoading,
+		data: products,
+		mutate: mutateProducts,
+	} = useSWR(PRODUCTS_ENDPOINT, readProductsAPI)
+
+	const { data: activeProduct } = useSWR(
+		activeProductID ? `${PRODUCTS_ENDPOINT}/${encodeURIComponent(activeProductID)}` : null,
+		readSingleProductAPI,
+	)
+
+	const { data: productReviews } = useSWR(
+		activeProductID ? `${PRODUCTS_ENDPOINT}/${activeProductID}/${REVIEWS_ENDPOINT}` : null,
+		readReviewsAPI,
+	)
 
 	const createProductMutation = async (newProduct: Product) => {
 		try {
-			// version 1
 			await createProductAPI(newProduct)
 			mutateProducts()
-
-			// version 2
-			// await mutateProducts(createProductAPI(newProduct), createProductOptions(newProduct))
-			// showToast({ summary: 'Product created successfully!', severity: 'success' })
 		} catch (err) {
 			showToast({ summary: 'Product creation failed!', severity: 'error' })
 		}
@@ -47,13 +54,8 @@ export const ProductList = () => {
 
 	const updateProductMutation = async (productToUpdate: Product) => {
 		try {
-			// version 1
 			await updateProductAPI(productToUpdate)
 			mutateProducts()
-
-			// version 2
-			// await mutateProducts(updateProductAPI(productToUpdate), updateProductOptions(productToUpdate))
-			// showToast({ summary: 'Product updated successfully!', severity: 'success' })
 		} catch (err) {
 			showToast({ summary: 'Product update failed!', severity: 'error' })
 		}
@@ -61,10 +63,8 @@ export const ProductList = () => {
 
 	const deleteProductMutation = async (productToDeleteID: string | undefined) => {
 		try {
-			await mutateProducts(
-				deleteProductAPI(productToDeleteID),
-				deleteProductOptions(productToDeleteID),
-			)
+			await deleteProductAPI(productToDeleteID)
+			mutateProducts()
 			showToast({ summary: 'Product deleted successfully!', severity: 'success' })
 		} catch (err) {
 			showToast({ summary: 'Product delete failed!', severity: 'error' })
@@ -80,7 +80,8 @@ export const ProductList = () => {
 					<ProductToolbar setProductMode={setProductMode} />
 
 					<ProductDetails
-						product={activeProduct}
+						activeProduct={activeProduct}
+						productReviews={productReviews}
 						productMode={productMode}
 						setProductMode={setProductMode}
 					/>
@@ -101,7 +102,7 @@ export const ProductList = () => {
 					<ProductTable
 						products={products}
 						setProductMode={setProductMode}
-						setActiveProduct={setActiveProduct}
+						setActiveProductID={setActiveProductID}
 						deleteProductMutation={deleteProductMutation}
 					/>
 				</div>

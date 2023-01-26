@@ -58,6 +58,6 @@ export const PRODUCT_FIELDS_DEFAULT_VALUES = {
 	weight: 0,
 	price: 0,
 	currency: 'EUR',
-	manufacturer: 'Romania',
+	manufacturer: '',
 	originCountry: 'Romania',
 } as const

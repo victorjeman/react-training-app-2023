@@ -1,14 +1,15 @@
 import axios from 'axios'
 
 import { API_BASE_URL } from '~/common/constants/common.const'
-import { PRODUCTS_ENDPOINT, REVIEWS_ENDPOINT } from '~/features/products/constants/product.const'
+import { PRODUCTS_ENDPOINT } from '~/features/products/constants/product.const'
 import { ProductReview } from '~/features/products/types/products.types'
 
-const productsAPI = axios.create({ baseURL: API_BASE_URL })
+const productsAPI = axios.create({
+	baseURL: API_BASE_URL,
+})
 
 const delay = (delay: number = 20) => new Promise((res: Function) => setTimeout(() => res(), delay))
 
-// products
 export const createProductAPI = async (product: any) => {
 	await delay()
 
@@ -16,11 +17,21 @@ export const createProductAPI = async (product: any) => {
 	return response.data
 }
 
-export const readProductsAPI = async () => {
+export const readProductsAPI = async (url: string) => {
 	await delay()
 
 	try {
-		const response = await productsAPI.get(PRODUCTS_ENDPOINT)
+		const response = await productsAPI.get(url)
+		return response.data.products
+	} catch (error) {
+		console.log('error: ', error)
+		return []
+	}
+}
+
+export const readSingleProductAPI = async (url: string) => {
+	try {
+		const response = await productsAPI.get(url)
 		return response.data
 	} catch (error) {
 		console.log('error: ', error)
@@ -40,7 +51,6 @@ export const deleteProductAPI = async (productToDeleteID: string | undefined) =>
 	return response.data
 }
 
-// product reviews
 export const readReviewsAPI = async (url: string): Promise<ProductReview[]> => {
 	await delay()
 
