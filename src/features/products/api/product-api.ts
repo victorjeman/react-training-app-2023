@@ -41,7 +41,7 @@ export const readSingleProductAPI = async (url: string) => {
 
 export const updateProductAPI = async (product: any) => {
 	await delay()
-	const response = await productsAPI.patch(`${PRODUCTS_ENDPOINT}/${product.id}`, product)
+	const response = await productsAPI.put(`${PRODUCTS_ENDPOINT}/${product.id}`, product)
 	return response.data
 }
 

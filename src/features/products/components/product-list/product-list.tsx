@@ -34,7 +34,7 @@ export const ProductList = () => {
 	} = useSWR(PRODUCTS_ENDPOINT, readProductsAPI)
 
 	const { data: activeProduct } = useSWR(
-		activeProductID ? `${PRODUCTS_ENDPOINT}/${encodeURIComponent(activeProductID)}` : null,
+		activeProductID ? `${PRODUCTS_ENDPOINT}/${activeProductID}` : null,
 		readSingleProductAPI,
 	)
 
@@ -47,6 +47,7 @@ export const ProductList = () => {
 		try {
 			await createProductAPI(newProduct)
 			mutateProducts()
+			showToast({ summary: 'Product created successfully!', severity: 'success' })
 		} catch (err) {
 			showToast({ summary: 'Product creation failed!', severity: 'error' })
 		}
@@ -56,6 +57,7 @@ export const ProductList = () => {
 		try {
 			await updateProductAPI(productToUpdate)
 			mutateProducts()
+			showToast({ summary: 'Product updated successfully!', severity: 'success' })
 		} catch (err) {
 			showToast({ summary: 'Product update failed!', severity: 'error' })
 		}

@@ -20,7 +20,7 @@ export const ToastProvider = ({ children }: ToastProviderProps) => {
 		toast.current.show({
 			severity,
 			summary,
-			life: 3000,
+			life: 2000,
 		})
 	}
 
@@ -28,7 +28,7 @@ export const ToastProvider = ({ children }: ToastProviderProps) => {
 
 	return (
 		<toastContext.Provider value={{ showToast }}>
-			<Toast ref={toast} />
+			<Toast ref={toast} position='top-left' />
 
 			{children}
 		</toastContext.Provider>
