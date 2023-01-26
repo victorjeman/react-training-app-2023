@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { useUserRole } from '~/features/auth/hooks/useUserRole'
 import { getAppRouteLinksByRole } from '~/common/utils/getAppRouteLinksByRole'
 
-const defaultClassName = 'py-3 px-4 no-underline border-round-xl'
+const defaultClassName = 'py-2 px-4 no-underline border-round-xl block'
 const initialClassName = `${defaultClassName} no-underline text-color-secondary`
 const activeClassName = `${defaultClassName} bg-blue-100 text-blue-500 border-round-xl`
 

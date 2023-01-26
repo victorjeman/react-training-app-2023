@@ -1,6 +1,6 @@
 import { z as zod } from 'zod'
 
-import { COUNTRIES } from '~/features/products/constants/countries.const'
+import { COUNTRIES } from '~/common/constants/countries.const'
 
 export const PRODUCTS_ENDPOINT = 'products'
 export const REVIEWS_ENDPOINT = 'reviews'
