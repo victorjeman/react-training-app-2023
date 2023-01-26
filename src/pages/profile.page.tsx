@@ -1,11 +1,9 @@
-import { PageContainer } from '~/common/components/page-container/page-container'
-import { Navigation } from '~/common/components/navigation/navigation'
+import { AuthenticatedLayout } from '~/layouts/Authenticated.layout'
 
 export const ProfilePage = () => {
 	return (
-		<PageContainer>
-			<Navigation />
+		<AuthenticatedLayout>
 			<h1>Profile</h1>
-		</PageContainer>
+		</AuthenticatedLayout>
 	)
 }

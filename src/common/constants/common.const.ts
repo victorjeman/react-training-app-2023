@@ -2,6 +2,7 @@ import { AppRouteKeys } from '~/common/types/common.types'
 import { UserRole } from '~/features/users/types/user.types'
 
 export const API_BASE_URL = ' http://localhost:3000'
+// export const API_BASE_URL = ' https://accle-2023-products-app.azurewebsites.net/api/v1'
 
 export const APP_ROUTE_LABEL = {
 	PRODUCTS: 'Products',
