@@ -11,6 +11,11 @@ import { TodoPage } from '~/pages/todo.page'
 
 export const ROUTE_OBJECT_WITH_ROLES: RouteObjectWithRoles[] = [
 	{
+		path: APP_ROUTE_PATH.HOME,
+		roles: APP_ROUTE_ROLE.HOME,
+		element: <ProductsPage />,
+	},
+	{
 		path: APP_ROUTE_PATH.PRODUCTS,
 		roles: APP_ROUTE_ROLE.PRODUCTS,
 		element: <ProductsPage />,

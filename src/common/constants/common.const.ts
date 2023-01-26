@@ -5,6 +5,7 @@ import { UserRole } from '~/features/users/types/user.types'
 export const API_BASE_URL = ' https://accle-2023-products-app.azurewebsites.net/api/v1'
 
 export const APP_ROUTE_LABEL = {
+	HOME: 'Home',
 	PRODUCTS: 'Products',
 	ORGANIZATIONS: 'Organizations',
 	USERS: 'Users',
@@ -13,6 +14,7 @@ export const APP_ROUTE_LABEL = {
 } as const
 
 export const APP_ROUTE_PATH = {
+	HOME: '/',
 	PRODUCTS: '/products',
 	ORGANIZATIONS: '/organizations',
 	USERS: '/users',
@@ -21,6 +23,7 @@ export const APP_ROUTE_PATH = {
 } as const
 
 export const APP_ROUTE_ROLE = {
+	HOME: [UserRole.Public],
 	PRODUCTS: [UserRole.Public],
 	ORGANIZATIONS: [UserRole.Public],
 	USERS: [UserRole.Public],
