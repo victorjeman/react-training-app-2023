@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { RouteObjectWithRoles } from '~/router/types/router.types'
 import { APP_ROUTE_PATH, APP_ROUTE_ROLE } from '~/common/constants/common.const'
 

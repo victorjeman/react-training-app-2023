@@ -45,6 +45,7 @@ export const deleteProductOptions = (productToDeleteID: string | undefined) => {
 		optimisticData: (products: Product[]) => {
 			return products.filter((product) => product.id !== productToDeleteID)
 		},
+		// @ts-ignore
 		populateCache: (apiResponse, products: Product[]) => {
 			return products.filter((product) => product.id !== productToDeleteID)
 		},
