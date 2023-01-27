@@ -1,6 +1,10 @@
 ## Challenges
 
 ## React basics
+- Components
+- Virtual DOM
+- Rendering vs Drawing
+- Hooks (useState, useEffect)
 
 ## Let's imagine you are joining an existing project in our company
 
@@ -14,7 +18,7 @@
 - https://swr.vercel.app
 - https://zod.dev
 - https://primereact.org
-- https://www.primefaces.org/primeflex/
+- https://www.primefaces.org/primeflex
 
 ## Products components
 
@@ -23,17 +27,17 @@
 ## Products feature 
 
 ### Challenge 1
-Add the following fields to the product table	**manufacturer** **originCountry** 
+Add the following fields(columns) to the product table:	"manufacturer" and "originCountry" 
 
 ### Challenge 2
-Display the product **price** currency **in the product table**, add it inside another column.
-Display the product **price** currency **inside the product description**. Position the currency to the right of the`
+Display the product price** currency in the product table, add it inside another column.
+Display the product price** currency inside the product description. Position the currency to the right of the price.
 
 ### Challenge 3
-The **manufacturer** is not being sent properly to the API. Make the necessary fixes to send the manufacturer field to the api. 
+The manufacturer is not being sent properly to the API. Make the necessary fixes to send the manufacturer field to the api. 
 
 ### Challenge 4
-Display the **country flag** in the **product description section**
+Display the country flag in the product description section
 
 
 ## Organizations feature
