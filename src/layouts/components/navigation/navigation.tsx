@@ -22,5 +22,5 @@ export const Navigation = () => {
 		),
 	}))
 
-	return <Menubar model={menuModel} className='mb-3' />
+	return <Menubar model={menuModel} className='mb-3 justify-content-center' />
 }

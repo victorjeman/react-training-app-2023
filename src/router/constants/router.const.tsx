@@ -8,12 +8,13 @@ import { OrganizationsPage } from '~/pages/organizations.page'
 import { UsersPage } from '~/pages/users.page'
 import { ProfilePage } from '~/pages/profile.page'
 import { TodoPage } from '~/pages/todo.page'
+import { HomePage } from '~/pages/home.page'
 
 export const ROUTE_OBJECT_WITH_ROLES: RouteObjectWithRoles[] = [
 	{
 		path: APP_ROUTE_PATH.HOME,
 		roles: APP_ROUTE_ROLE.HOME,
-		element: <ProductsPage />,
+		element: <HomePage />,
 	},
 	{
 		path: APP_ROUTE_PATH.PRODUCTS,

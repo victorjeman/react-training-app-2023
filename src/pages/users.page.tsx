@@ -1,10 +1,10 @@
 import { AuthenticatedLayout } from '~/layouts/Authenticated.layout'
-import { Navigation } from '~/layouts/components/navigation/navigation'
+import { UserList } from '~/features/users/components/user-list/user-list'
 
 export const UsersPage = () => {
 	return (
 		<AuthenticatedLayout>
-			<h1>Users</h1>
+			<UserList />
 		</AuthenticatedLayout>
 	)
 }

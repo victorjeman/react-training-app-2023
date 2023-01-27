@@ -5,6 +5,8 @@ import { Chip } from 'primereact/chip'
 import cx from 'classnames'
 
 import { Organization, OrganizationMode } from '~/features/organizations/types/organization.types'
+import { NavLink } from 'react-router-dom'
+import { APP_ROUTE_PATH } from '~/common/constants/common.const'
 
 interface Props {
 	organizations: Organization[]
@@ -41,6 +43,10 @@ export const OrganizationTable = ({
 						setOrganizationMode('isUpdate')
 					}}
 				/>
+
+				<NavLink to={`${organization.id}/users`} className='no-underline'>
+					See users
+				</NavLink>
 			</>
 		)
 	}
@@ -63,9 +69,9 @@ export const OrganizationTable = ({
 			<Column field='legalName' header='Legal name'></Column>
 			<Column header='Status' body={activeBodyTemplate}></Column>
 			<Column
-				className='flex justify-content-end'
 				header='Actions'
-				body={actionsBodyTemplate}></Column>
+				body={actionsBodyTemplate}
+				className='flex justify-content-end align-items-center'></Column>
 		</DataTable>
 	)
 }

@@ -12,7 +12,6 @@ import { useToast } from '~/common/hooks/useToast'
 
 import {
 	createOrganizationAPI,
-	deleteOrganizationAPI,
 	readOrganizationsAPI,
 	readSingleOrganizationAPI,
 	updateOrganizationAPI,

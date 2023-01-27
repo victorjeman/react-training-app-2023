@@ -18,7 +18,7 @@ export const APP_ROUTE_PATH = {
 	HOME: '/',
 	PRODUCTS: '/products',
 	ORGANIZATIONS: '/organizations',
-	USERS: '/users',
+	USERS: 'organizations/:organizationID/users',
 	TODO: '/todo',
 	PROFILE: '/profile',
 } as const
@@ -32,10 +32,20 @@ export const APP_ROUTE_ROLE = {
 	PROFILE: [UserRole.Public],
 } as const
 
-const ROUTE_KEYS = Object.keys(APP_ROUTE_LABEL) as Array<AppRouteKeys>
-
-export const APP_ROUTE_LINKS = ROUTE_KEYS.map((key) => ({
-	label: APP_ROUTE_LABEL[key],
-	path: APP_ROUTE_PATH[key],
-	roles: APP_ROUTE_ROLE[key],
-}))
+export const APP_ROUTE_LINKS = [
+	{
+		label: APP_ROUTE_LABEL.HOME,
+		path: APP_ROUTE_PATH.HOME,
+		roles: APP_ROUTE_ROLE.HOME,
+	},
+	{
+		label: APP_ROUTE_LABEL.PRODUCTS,
+		path: APP_ROUTE_PATH.PRODUCTS,
+		roles: APP_ROUTE_ROLE.PRODUCTS,
+	},
+	{
+		label: APP_ROUTE_LABEL.ORGANIZATIONS,
+		path: APP_ROUTE_PATH.ORGANIZATIONS,
+		roles: APP_ROUTE_ROLE.ORGANIZATIONS,
+	},
+]
