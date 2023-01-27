@@ -24,7 +24,11 @@ export const ProductFormUpdate = ({
 			className='w-30rem p-2'>
 			<h3 className='text-2xl font-normal'>Edit product</h3>
 
-			<ProductForm onSubmit={onSubmit} productToUpdate={activeProduct} />
+			<ProductForm
+				onSubmit={onSubmit}
+				productToUpdate={activeProduct}
+				setProductMode={setProductMode}
+			/>
 		</Sidebar>
 	)
 }

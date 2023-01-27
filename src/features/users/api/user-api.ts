@@ -7,30 +7,14 @@ const UserAPI = axios.create({
 	baseURL: API_BASE_URL_2,
 })
 
-export const createUserAPI = async (url: string, user: User) => {
-	const response = await UserAPI.post(url, user)
-	return response.data
-}
+// Challenge "create single user missing API"
+// Create an API function to create a single user
 
-export const readUsersAPI = async (url: string) => {
-	try {
-		const response = await UserAPI.get(url)
-		return response.data.users
-	} catch (error) {
-		console.log('error: ', error)
-		return []
-	}
-}
+// Challenge "users are not loaded from the API" hint
+// Create an API function to load all the users
 
-export const readSingleUserAPI = async (url: string) => {
-	try {
-		const response = await UserAPI.get(url)
-		return response.data
-	} catch (error) {
-		console.log('error: ', error)
-		return []
-	}
-}
+// Challenge "single user is not loading from API" hint
+// Create an API to load a single user
 
 export const updateUserAPI = async (url: string, userToUpdate: User) => {
 	const response = await UserAPI.put(url, userToUpdate)

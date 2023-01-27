@@ -8,15 +8,17 @@ const organizationAPI = axios.create({
 	baseURL: API_BASE_URL_2,
 })
 
-export const createOrganizationAPI = async (organization: NewOrganization) => {
-	const response = await organizationAPI.post(ORGANIZATIONS_ENDPOINT, organization)
-	return response.data
-}
+// Challenge "add new organization api" hint
+// See how it was one for products(product-api.ts), should be something similar
+export const createOrganizationAPI = async (organization: NewOrganization) => {}
 
 export const readOrganizationsAPI = async (url: string) => {
 	try {
 		const response = await organizationAPI.get(url)
-		return response.data.organizations
+
+		// Challenge "organization list is not loading" hint
+		// Use console.log to check the response object and return the organizations instead of an empty array
+		return []
 	} catch (error) {
 		console.log('error: ', error)
 		return []

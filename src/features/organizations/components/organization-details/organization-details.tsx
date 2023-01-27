@@ -4,7 +4,6 @@ import { Chip } from 'primereact/chip'
 import cx from 'classnames'
 
 import { Organization, OrganizationMode } from '~/features/organizations/types/organization.types'
-import classNames from 'classnames'
 
 interface Props {
 	activeOrganization: Organization

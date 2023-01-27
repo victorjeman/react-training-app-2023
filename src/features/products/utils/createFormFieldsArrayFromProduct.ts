@@ -6,7 +6,7 @@ export const createFormFieldsArrayFromProduct = (product: Product) => {
 		['manufacturer', product.manufacturer],
 		['originCountry', product.originCountry],
 		['weight', product.weight],
-		['currency', product.price.currency],
+		['currency', product.price?.currency],
 		['price', product.price?.value],
 		['width', product.size?.width],
 		['height', product.size?.height],

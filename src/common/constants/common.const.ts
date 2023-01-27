@@ -1,4 +1,3 @@
-import { AppRouteKeys } from '~/common/types/common.types'
 import { UserRole } from '~/features/users/types/user.types'
 
 // export const API_BASE_URL = ' http://localhost:3000'

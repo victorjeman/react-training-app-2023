@@ -12,12 +12,18 @@ import {
 	PRODUCT_FIELDS_DEFAULT_VALUES,
 	PRODUCT_FORM_SCHEMA,
 } from '~/features/products/constants/product.const'
-import { Product, ProductFieldName, ProductFields } from '~/features/products/types/products.types'
+import {
+	Product,
+	ProductFieldName,
+	ProductFields,
+	ProductMode,
+} from '~/features/products/types/products.types'
 import { createProductFromFields } from '~/features/products/utils/createProductFromFields'
 import { createFormFieldsArrayFromProduct } from '~/features/products/utils/createFormFieldsArrayFromProduct'
 
 interface Props {
 	onSubmit: (product: Product) => void
+	setProductMode: (value: ProductMode) => void
 	productToUpdate?: Product | null
 }
 
@@ -37,7 +43,7 @@ const countryOptionTemplate = (option: any) => {
 	)
 }
 
-export const ProductForm = ({ onSubmit, productToUpdate }: Props) => {
+export const ProductForm = ({ onSubmit, productToUpdate, setProductMode }: Props) => {
 	const {
 		register,
 		handleSubmit,
@@ -55,7 +61,7 @@ export const ProductForm = ({ onSubmit, productToUpdate }: Props) => {
 
 		onSubmit(productToSubmit)
 
-		if (!productToUpdate) reset()
+		setProductMode('isDefault')
 	}
 
 	const getFormErrorMessage = (fieldName: ProductFieldName) => {

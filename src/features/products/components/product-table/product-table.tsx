@@ -68,8 +68,11 @@ export const ProductTable = ({
 	return (
 		<DataTable value={products} responsiveLayout='scroll'>
 			<Column field='name' header='Name'></Column>
+
 			<Column field='price.value' header='Price'></Column>
 			<Column header='Actions' body={actionsBodyTemplate} exportable={false}></Column>
+
+			{/* Challenge 1 hint */}
 		</DataTable>
 	)
 }

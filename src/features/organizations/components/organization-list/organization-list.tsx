@@ -35,8 +35,11 @@ export const OrganizationList = () => {
 		mutate: mutateOrganizations,
 	} = useSWR(ORGANIZATIONS_ENDPOINT, readOrganizationsAPI)
 
+	// Challenge "organization details request failing"
+	// Something seems wrong here when we are trying to load a single
+	// See the "product-list.tsx" for a working example
 	const { data: activeOrganization } = useSWR(
-		activeOrganizationID ? `${ORGANIZATIONS_ENDPOINT}/${activeOrganizationID}` : null,
+		activeOrganizationID ? `wrong-endpoint-here` : null,
 		readSingleOrganizationAPI,
 	)
 

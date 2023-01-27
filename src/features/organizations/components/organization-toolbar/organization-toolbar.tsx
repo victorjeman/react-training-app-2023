@@ -14,7 +14,8 @@ export const OrganizationToolbar = ({ setOrganizationMode, ...rest }: Props) => 
 			<Button
 				icon='pi pi-plus'
 				className='mr-2 font-medium'
-				onClick={() => setOrganizationMode('isCreate')}>
+				// Challenge "add new organization" 5 hint
+				onClick={() => setOrganizationMode('isRead')}>
 				<span className='ml-2'>Add new organization</span>
 			</Button>
 		</>

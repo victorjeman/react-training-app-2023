@@ -16,7 +16,7 @@ export const ProductFormCreate = ({ productMode, onSubmit, setProductMode }: Pro
 			visible={productMode === 'isCreate'}
 			style={{ width: '50vw' }}
 			onHide={() => setProductMode('isDefault')}>
-			<ProductForm onSubmit={onSubmit} />
+			<ProductForm onSubmit={onSubmit} setProductMode={setProductMode} />
 		</Dialog>
 	)
 }

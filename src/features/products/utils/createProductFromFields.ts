@@ -4,7 +4,8 @@ export const createProductFromFields = (productFormFields: ProductFields, produc
 	return {
 		...(productId && { id: productId }),
 		name: productFormFields.name,
-		manufacturer: productFormFields.manufacturer,
+
+		// Challenge 3 hint
 		originCountry: productFormFields.originCountry,
 		weight: productFormFields.weight,
 		price: {

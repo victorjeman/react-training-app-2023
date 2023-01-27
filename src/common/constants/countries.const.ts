@@ -1,3 +1,5 @@
+// Challenge 4 hint, look at the each string for each country's Flag param, what do they have in common?
+
 export const COUNTRIES = [
 	{
 		Flag: 'https://www.currencyremitapp.com/wp-content/themes/currencyremitapp/images/countryimages/albania.png',

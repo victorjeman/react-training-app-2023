@@ -28,7 +28,9 @@ export const OrganizationTable = ({
 					icon='pi pi-eye'
 					className='p-button-rounded p-button-primary p-button-text mr-1'
 					onClick={() => {
-						setActiveOrganizationID(organization.id)
+						// Challenge "organization details don't work" 6 hint
+						setActiveOrganizationID()
+
 						setOrganizationMode('isRead')
 					}}
 				/>
@@ -40,7 +42,10 @@ export const OrganizationTable = ({
 					className='p-button-rounded p-button-secondary p-button-text mr-3'
 					onClick={() => {
 						setActiveOrganizationID(organization.id)
-						setOrganizationMode('isUpdate')
+
+						// Challenge "table edit button doesn't work" 7 hint
+						// Something must be wrong with this function call
+						setOrganizationMode('isRead')
 					}}
 				/>
 

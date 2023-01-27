@@ -7,12 +7,7 @@ import { useToast } from '~/common/hooks/useToast'
 import { USERS_ENDPOINT } from '~/features/users/constants/user.const'
 import { ORGANIZATIONS_ENDPOINT } from '~/features/organizations/constants/organization.const'
 
-import {
-	createUserAPI,
-	readSingleUserAPI,
-	readUsersAPI,
-	updateUserAPI,
-} from '~/features/users/api/user-api'
+import { updateUserAPI } from '~/features/users/api/user-api'
 
 import { UserToolbar } from '~/features/users/components/user-toolbar/user-toolbar'
 import { UserDetails } from '~/features/users/components/user-details/user-details'
@@ -29,22 +24,15 @@ export const UserList = () => {
 
 	const { showToast } = useToast()
 
-	const {
-		isLoading,
-		data: users,
-		mutate: mutateUsers,
-	} = useSWR(`/${ORGANIZATIONS_ENDPOINT}/${organizationID}/${USERS_ENDPOINT}`, readUsersAPI)
+	// Challenge "users are not loaded from the API" hint
+	const { isLoading, data: users, mutate: mutateUsers } = useSWR(``, () => {})
 
-	const { data: activeUser } = useSWR(
-		activeUserID
-			? `/${ORGANIZATIONS_ENDPOINT}/${organizationID}/${USERS_ENDPOINT}/${activeUserID}`
-			: null,
-		readSingleUserAPI,
-	)
+	// Challenge "single user is not loading from API" hint
+	const { data: activeUser } = useSWR(activeUserID ? `` : null, () => {})
 
 	const createUserMutation = async (newUser: User) => {
 		try {
-			await createUserAPI(`/${ORGANIZATIONS_ENDPOINT}/${organizationID}/${USERS_ENDPOINT}`, newUser)
+			// Challenge "create single user missing API" hint
 			mutateUsers()
 			showToast({ summary: 'User created successfully!', severity: 'success' })
 		} catch (err) {
@@ -58,7 +46,8 @@ export const UserList = () => {
 				`/${ORGANIZATIONS_ENDPOINT}/${organizationID}/${USERS_ENDPOINT}/${activeUserID}`,
 				userToUpdate,
 			)
-			mutateUsers()
+
+			// Challenge "users table is not reloading on update" hint
 			showToast({ summary: 'User updated successfully!', severity: 'success' })
 		} catch (err) {
 			showToast({ summary: 'User update failed!', severity: 'error' })

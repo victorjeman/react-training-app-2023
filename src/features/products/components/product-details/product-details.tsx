@@ -11,6 +11,11 @@ interface Props {
 	setProductMode: (value: ProductMode) => void
 }
 
+// Challenge 4 hint
+function getCountryFlagSrc(countryName: string) {
+	return `https://www.currencyremitapp.com/wp-content/themes/currencyremitapp/images/countryimages/romania.png`
+}
+
 export const ProductDetails = ({
 	activeProduct,
 	productReviews,
@@ -35,6 +40,8 @@ export const ProductDetails = ({
 
 						<li className='grid'>
 							<span className='col-6'>Price</span>
+
+							{/* Challenge 2 hint */}
 							<span className='col-6 text-right'>{activeProduct.price?.value}</span>
 						</li>
 					</ul>
@@ -68,6 +75,8 @@ export const ProductDetails = ({
 
 						<li className='grid'>
 							<span className='col-6'>Origin country</span>
+
+							{/* Challenge 4 hint */}
 							<span className='col-6 text-right'>{activeProduct.originCountry}</span>
 						</li>
 					</ul>
