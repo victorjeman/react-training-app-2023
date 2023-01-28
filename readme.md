@@ -1,4 +1,6 @@
-## Challenges
+# React training app 2023
+
+## The theme: "Let's imagine that you are joining an existing project in our company and you have to pick up the pace fast."
 
 ## React basics
 - Components
@@ -6,7 +8,6 @@
 - Rendering vs Drawing
 - Hooks (useState, useEffect)
 
-## Let's imagine you are joining an existing project in our company
 
 ## What are the features?
 
@@ -23,8 +24,13 @@
 ## Products components
 
 ## Project structure
+Let's talk about the project structure
 
 ## Products feature 
+- What are our features?
+- Organizations
+- Users
+- Todo
 
 ### Challenge 1
 Add the following fields(columns) to the product table:	"manufacturer" and "originCountry" 
@@ -64,9 +70,13 @@ The request to load a specific organization doesn't work. Please fix it.
 ## Users feature
 
 ### Challenge "users are not loaded from the API"
+We are unable to load the users from the API. Please add the necessary code to fix this issue.
 
 ### Challenge "single user is not loading from API"
+We are unable to load a single user from the API. Please add the necessary code to fix this issue.
 
 ### Challenge "create single user missing API"
+We are unable to create new users. Please add the necessary code to fix this issue.
 
 ### Challenge "users table is not reloading on update"
+When we update a user the table doesn't display the updated data. Please fix the issue.

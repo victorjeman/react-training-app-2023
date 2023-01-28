@@ -61,7 +61,8 @@ export const ProductForm = ({ onSubmit, productToUpdate, setProductMode }: Props
 
 		onSubmit(productToSubmit)
 
-		setProductMode('isDefault')
+		if (productToUpdate) setProductMode('isDefault')
+		if (!productToUpdate) reset()
 	}
 
 	const getFormErrorMessage = (fieldName: ProductFieldName) => {
