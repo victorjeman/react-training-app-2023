@@ -1,12 +1,5 @@
 import { USER_FIELDS_DEFAULT_VALUES } from '~/features/users/constants/user.const'
 
-export enum UserRole {
-	Public = 'Public',
-	User = 'User',
-	Admin = 'Admin',
-	SuperAdmin = 'SuperAdmin',
-}
-
 export interface UserLite {
 	id: string
 	firstName: string

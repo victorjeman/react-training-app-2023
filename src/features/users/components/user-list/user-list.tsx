@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useSWR from 'swr'
 
-import { useToast } from '~/common/hooks/useToast'
+import { useToast } from '~/common/hooks/use-toast'
 
 import { USERS_ENDPOINT } from '~/features/users/constants/user.const'
 import { ORGANIZATIONS_ENDPOINT } from '~/features/organizations/constants/organization.const'

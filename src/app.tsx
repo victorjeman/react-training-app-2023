@@ -1,12 +1,7 @@
 import { Router } from '~/router/router'
 
 function App() {
-	return (
-		<>
-			<Router />
-			<main></main>
-		</>
-	)
+	return <Router />
 }
 
 export default App

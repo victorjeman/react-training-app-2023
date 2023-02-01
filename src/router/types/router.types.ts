@@ -1,7 +1,7 @@
 import { RouteObject } from 'react-router-dom'
 
-import { UserRole } from '~/features/users/types/user.types'
+import { Role } from '~/features/auth/types/auth.types'
 
 export type RouteObjectWithRoles = RouteObject & {
-	roles: UserRole[]
+	roles: Role[]
 }

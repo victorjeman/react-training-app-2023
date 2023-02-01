@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import useSWR from 'swr'
 
+import { useToast } from '~/common/hooks/use-toast'
+
 import { PRODUCTS_ENDPOINT, REVIEWS_ENDPOINT } from '~/features/products/constants/product.const'
 import { ProductMode, Product } from '~/features/products/types/products.types'
-
-import { useToast } from '~/common/hooks/useToast'
 
 import {
 	createProductAPI,
@@ -20,6 +20,9 @@ import { ProductToolbar } from '~/features/products/components/product-toolbar/p
 import { ProductFormUpdate } from '~/features/products/components/product-form-update/product-form-update'
 import { ProductFormCreate } from '~/features/products/components/product-form-create/product-form-create'
 import { ProductTable } from '~/features/products/components/product-table/product-table'
+
+import { AuthLogin } from '~/features/auth/components/auth-login/auth-login'
+import { Restricted } from '~/features/auth/components/auth-restricted-ui/auth-restricted-ui'
 
 export const ProductList = () => {
 	const [activeProductID, setActiveProductID] = useState<string | undefined>(undefined)

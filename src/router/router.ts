@@ -1,10 +1,10 @@
 import { useRoutes } from 'react-router-dom'
+import { useAuth } from '~/features/auth/hooks/use-auth'
 
-import { useUserRole } from '~/features/auth/hooks/useUserRole'
 import { getRouteObjectsByRole } from '~/router/utils/getRouteObjectsByRole'
 
 export const Router = () => {
-	const { userRole } = useUserRole()
+	const { user } = useAuth()
 
-	return useRoutes(getRouteObjectsByRole(userRole))
+	return useRoutes(getRouteObjectsByRole(user.role))
 }

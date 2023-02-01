@@ -1,8 +1,7 @@
 import { APP_ROUTE_LINKS } from '~/common/constants/common.const'
-import { AppRouteLink } from '~/common/types/common.types'
-import { UserRole } from '~/features/users/types/user.types'
+import { Role } from '~/features/auth/types/auth.types'
 
-export const getAppRouteLinksByRole = (userRole: UserRole) => {
+export const getAppRouteLinksByRole = (userRole: Role) => {
 	const userLinks = APP_ROUTE_LINKS.filter((routeLinkWithRoles) =>
 		routeLinkWithRoles.roles.some((role) => role.valueOf() === userRole),
 	)

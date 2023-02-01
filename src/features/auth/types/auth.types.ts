@@ -1,7 +1,14 @@
-import { UserRole } from '~/features/users/types/user.types'
+export type Permission = 'products.read' | 'products.create' | 'products.update' | 'products.delete'
 
-export interface Credentials {
+export enum Role {
+	Public = 'Public',
+	Viewer = 'Viewer',
+	Contributor = 'Contributor',
+	Administrator = 'Administrator',
+}
+
+export interface AuthUser {
 	name: string
-	password: string
-	role: UserRole
+	permissions: Permission[]
+	role: Role
 }

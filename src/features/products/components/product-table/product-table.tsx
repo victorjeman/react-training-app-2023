@@ -4,6 +4,7 @@ import { DataTable } from 'primereact/datatable'
 import { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup'
 
 import { Product, ProductMode } from '~/features/products/types/products.types'
+import { AuthRestrictedUI } from '~/features/auth/components/auth-restricted-ui/auth-restricted-ui'
 
 interface Props {
 	products: Product[]
@@ -42,25 +43,29 @@ export const ProductTable = ({
 					}}
 				/>
 
-				<Button
-					tooltip='edit this product'
-					tooltipOptions={{ position: 'top' }}
-					icon='pi pi-pencil'
-					className='p-button-rounded p-button-secondary p-button-text mr-3'
-					onClick={() => {
-						setActiveProductID(product.id)
-						setProductMode('isUpdate')
-					}}
-				/>
+				<AuthRestrictedUI permission='products.update'>
+					<Button
+						tooltip='edit this product'
+						tooltipOptions={{ position: 'top' }}
+						icon='pi pi-pencil'
+						className='p-button-rounded p-button-secondary p-button-text mr-3'
+						onClick={() => {
+							setActiveProductID(product.id)
+							setProductMode('isUpdate')
+						}}
+					/>
+				</AuthRestrictedUI>
 
-				<Button
-					tooltip='delete this product'
-					tooltipOptions={{ position: 'top' }}
-					icon='pi pi-trash'
-					className='p-button-rounded p-button-danger p-button-text'
-					onClick={(event) => confirm(event, product.id)}
-				/>
-				<ConfirmPopup />
+				<AuthRestrictedUI permission='products.delete'>
+					<Button
+						tooltip='delete this product'
+						tooltipOptions={{ position: 'top' }}
+						icon='pi pi-trash'
+						className='p-button-rounded p-button-danger p-button-text'
+						onClick={(event) => confirm(event, product.id)}
+					/>
+					<ConfirmPopup />
+				</AuthRestrictedUI>
 			</>
 		)
 	}
@@ -68,11 +73,15 @@ export const ProductTable = ({
 	return (
 		<DataTable value={products} responsiveLayout='scroll'>
 			<Column field='name' header='Name'></Column>
-
 			<Column field='price.value' header='Price'></Column>
-			<Column header='Actions' body={actionsBodyTemplate} exportable={false}></Column>
 
 			{/* Challenge 1 hint */}
+
+			<Column
+				header='Actions'
+				body={actionsBodyTemplate}
+				exportable={false}
+				className='flex justify-content-end'></Column>
 		</DataTable>
 	)
 }

@@ -8,7 +8,7 @@ import {
 	OrganizationMode,
 } from '~/features/organizations/types/organization.types'
 
-import { useToast } from '~/common/hooks/useToast'
+import { useToast } from '~/common/hooks/use-toast'
 
 import {
 	createOrganizationAPI,
