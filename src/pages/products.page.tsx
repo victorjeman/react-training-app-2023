@@ -1,10 +1,10 @@
-import { AuthenticatedLayout } from '~/layouts/Authenticated.layout'
+import { PrivateLayout } from '~/layouts/private.layout'
 import { ProductList } from '~/features/products/components/product-list/product-list'
 
 export const ProductsPage = () => {
 	return (
-		<AuthenticatedLayout>
+		<PrivateLayout>
 			<ProductList />
-		</AuthenticatedLayout>
+		</PrivateLayout>
 	)
 }

@@ -5,7 +5,7 @@ interface Props {
 	children: React.ReactNode | React.ReactNode[]
 }
 
-export const AuthenticatedLayout = ({ children }: Props) => {
+export const PrivateLayout = ({ children }: Props) => {
 	return (
 		<PageContainer>
 			<Navigation />

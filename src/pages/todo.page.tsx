@@ -1,9 +1,9 @@
-import { AuthenticatedLayout } from '~/layouts/Authenticated.layout'
+import { PrivateLayout } from '~/layouts/private.layout'
 
 export const TodoPage = () => {
 	return (
-		<AuthenticatedLayout>
+		<PrivateLayout>
 			<h1>Todo page</h1>
-		</AuthenticatedLayout>
+		</PrivateLayout>
 	)
 }

@@ -11,7 +11,7 @@ interface UserContext {
 }
 
 const defaultUser: AuthUser = {
-	name: 'Unknown',
+	name: 'Beautiful Stranger',
 	role: Role.Public,
 	permissions: [],
 }
@@ -19,23 +19,25 @@ const defaultUser: AuthUser = {
 const useAuthLocal = () => {
 	const [user, setUser] = useLocalStorage('user', defaultUser)
 
+	function login(user: AuthUser) {
+		return new Promise((res: any) => {
+			setUser(user)
+			res()
+		})
+	}
+
+	function logout() {
+		return new Promise((res: any) => {
+			setUser(defaultUser)
+			res()
+		})
+	}
+
 	return {
 		user,
 		isAuthenticated: user.role && user.role !== Role.Public,
-
-		login(user: AuthUser) {
-			return new Promise((res: any) => {
-				setUser(user)
-				res()
-			})
-		},
-
-		logout() {
-			return new Promise((res: any) => {
-				setUser(defaultUser)
-				res()
-			})
-		},
+		login,
+		logout,
 	}
 }
 

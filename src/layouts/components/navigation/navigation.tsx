@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import { useAuth } from '~/features/auth/hooks/use-auth'
 import { getAppRouteLinksByRole } from '~/common/utils/getAppRouteLinksByRole'
+import { Role } from '~/features/auth/types/auth.types'
 
 const defaultClassName = 'py-2 px-4 no-underline border-round-xl block'
 const initialClassName = `${defaultClassName} no-underline text-color-secondary`
@@ -24,7 +25,8 @@ export const Navigation = () => {
 
 	const end = (
 		<>
-			<strong> Hello {user.name}</strong> <button onClick={() => logout()}>Logout</button>
+			Hello <strong>{user.name}</strong>
+			{user.role !== Role.Public && <button onClick={() => logout()}>Logout</button>}
 		</>
 	)
 

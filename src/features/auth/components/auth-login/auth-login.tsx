@@ -38,16 +38,16 @@ export const AuthLogin = ({}: Props) => {
 
 	return (
 		<div>
-			<ul>
-				<li className='mb-2 list-none p-0'>
+			<ul className='p-0'>
+				<li className='mb-3 list-none p-0'>
 					<Button onClick={() => loginLocal(viewer)}>Login as viewer</Button>
 				</li>
 
-				<li className='mb-2 list-none p-0'>
+				<li className='mb-3 list-none p-0'>
 					<Button onClick={() => loginLocal(contributor)}>Login as contributor</Button>
 				</li>
 
-				<li className='mb-2 list-none p-0'>
+				<li className='mb-3 list-none p-0'>
 					<Button onClick={() => loginLocal(administrator)}>Login as administrator</Button>
 				</li>
 			</ul>
